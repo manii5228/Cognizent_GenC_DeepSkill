@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
+        "http://www.springframework.org/dtd/spring-beans-2.0.dtd">
+
+<!--
+    country.xml – Spring XML Configuration File
+    Defines four country beans and a list of all countries.
+-->
+<beans>
+
+    <!-- ===================================================
+         Individual Country Beans
+    ==================================================== -->
+
+    <!-- India -->
+    <bean id="country" class="com.cognizant.springlearn.Country">
+        <property name="code" value="IN" />
+        <property name="name" value="India" />
+    </bean>
+
+    <!-- United States -->
+    <bean id="countryUS" class="com.cognizant.springlearn.Country">
+        <property name="code" value="US" />
+        <property name="name" value="United States" />
+    </bean>
+
+    <!-- Japan -->
+    <bean id="countryJP" class="com.cognizant.springlearn.Country">
+        <property name="code" value="JP" />
+        <property name="name" value="Japan" />
+    </bean>
+
+    <!-- Germany -->
+    <bean id="countryDE" class="com.cognizant.springlearn.Country">
+        <property name="code" value="DE" />
+        <property name="name" value="Germany" />
+    </bean>
+
+    <!-- ===================================================
+         Country List Bean – used by /countries endpoint
+    ==================================================== -->
+    <bean id="countryList" class="java.util.ArrayList">
+        <constructor-arg>
+            <list>
+                <ref bean="country" />
+                <ref bean="countryUS" />
+                <ref bean="countryJP" />
+                <ref bean="countryDE" />
+            </list>
+        </constructor-arg>
+    </bean>
+
+</beans>
